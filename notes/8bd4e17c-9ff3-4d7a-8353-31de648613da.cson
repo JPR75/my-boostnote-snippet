@@ -1,0 +1,23 @@
+createdAt: "2019-11-26T13:17:45.735Z"
+updatedAt: "2019-12-03T12:57:03.627Z"
+type: "MARKDOWN_NOTE"
+folder: "e9a4271b78b0a96eb3ee"
+title: "Sheat chaet"
+tags: []
+content: '''
+  # Sheat chaet
+  
+  ## Search text in file
+  `grep --include=\\<files> -rnw '<path>' -e "<patten>"`
+  ```
+  grep --include=\\*.vhd -rnw 'FPGA/' -e "foo"
+  ```
+  
+  ## Exclude some files
+  ```
+  grep --exclude=\\*.{vhd,ucf,py,vhdl,wsgi,rst,old} -rnw '.' -e "foo"
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

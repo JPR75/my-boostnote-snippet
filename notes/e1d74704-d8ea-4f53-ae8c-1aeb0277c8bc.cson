@@ -1,0 +1,17 @@
+createdAt: "2019-11-26T13:40:11.970Z"
+updatedAt: "2019-11-26T13:40:31.112Z"
+type: "MARKDOWN_NOTE"
+folder: "b5a4c3735ff349c471f9"
+title: "How to list only the file names that changed between two commits"
+tags: []
+content: '''
+  # How to list only the file names that changed between two commits
+  ```
+  git diff --name-only SHA1 SHA2
+  git diff --name-only HEAD~10 HEAD~5
+  git diff --name-only origin
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

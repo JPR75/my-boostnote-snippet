@@ -1,0 +1,38 @@
+createdAt: "2019-11-26T13:53:39.325Z"
+updatedAt: "2019-11-27T15:37:53.830Z"
+type: "MARKDOWN_NOTE"
+folder: "7dc77dacbe5f2300b07f"
+title: "My short cuts"
+tags: []
+content: '''
+  # My short cuts
+  
+  ## Jump to the matching object, and you visually select all the text in between
+  `map <F6> v%`
+  
+  ## Move the cursor to the first non-blank character of a line
+  `map <F7> ^`
+  
+  ## Toggle case
+  `map <F8> ~`
+  
+  ## Remove trailing space
+  `map <F9> <ESC>:%s/\\s\\+$//<CR>`
+  
+  ## Remove temporally comment in selected area
+  `map <F10> <ESC>:%s/\\%V--.*\\n//gc<CR>`
+  
+  ## Capitalize word
+  `map <F11> <ESC>:%s/\\<\\(\\w\\)\\(\\w*\\)\\>/\\u\\1\\L\\2/g<CR>:noh<CR>`
+  
+  ## Moves line up
+  `nmap <C-up> ddkP`
+  
+  ## Moves line down
+  `nmap <C-down> ddjP`
+'''
+linesHighlighted: [
+  20
+]
+isStarred: false
+isTrashed: false

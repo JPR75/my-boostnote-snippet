@@ -1,0 +1,21 @@
+createdAt: "2019-11-25T15:52:43.501Z"
+updatedAt: "2019-11-25T15:56:02.719Z"
+type: "SNIPPET_NOTE"
+folder: "69af2bf0c7bc0f916ede"
+title: "Do not optimize a signal"
+tags: []
+description: "Do not optimize a signal"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "no_optimization.vhd"
+    mode: "VHDL"
+    content: '''
+      signal s_output : std_logic := '0';
+      attribute S of s_output : signal is "TRUE";
+      attribute KEEP of s_output : signal is "TRUE";
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

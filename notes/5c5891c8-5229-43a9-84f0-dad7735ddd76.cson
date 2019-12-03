@@ -1,0 +1,21 @@
+createdAt: "2019-11-26T13:41:04.843Z"
+updatedAt: "2019-11-26T13:41:42.398Z"
+type: "MARKDOWN_NOTE"
+folder: "b5a4c3735ff349c471f9"
+title: "Synchronizing a local Git repository with a remote one"
+tags: []
+content: '''
+  # Synchronizing a local Git repository with a remote one
+  ```
+  git fetch <remote> --prune
+      -p, --prune
+      After fetching, remove any remote-tracking branches which no longer exist on the remote.
+  ```
+  
+  ```
+  git pull <remote> -p
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

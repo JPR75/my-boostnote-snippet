@@ -1,0 +1,22 @@
+createdAt: "2019-11-26T13:38:40.466Z"
+updatedAt: "2019-11-26T13:39:06.461Z"
+type: "MARKDOWN_NOTE"
+folder: "b5a4c3735ff349c471f9"
+title: "My config"
+tags: []
+content: '''
+  # My config
+  ```
+  [alias]
+  # Full
+  gvf = log --graph --date-order -C -M --pretty=format:\\" %C(bold yellow)<%h>%Creset %C(cyan)%ad%Creset %C(bold green)%d%Creset %s\\" --all --date=short
+  # Collapse the linear parts of the history
+  gv = log --graph --date-order -C -M --pretty=format:\\" %C(bold yellow)<%h>%Creset %C(cyan)%ad%Creset %C(bold green)%d%Creset %s\\" --all --date=short --simplify-by-decoration
+  # Show author
+  gva = log --graph --date-order --color --pretty=format:\\" %C(bold yellow)<%h>%Creset %C(cyan)%ad%Creset %C(bold blue)%an%Creset %C(bold green)%d%Creset %s\\" --all --date=short
+  ls = ls-tree --name-only -r head
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

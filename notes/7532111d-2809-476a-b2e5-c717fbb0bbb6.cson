@@ -1,0 +1,15 @@
+createdAt: "2019-11-26T13:39:16.152Z"
+updatedAt: "2019-11-26T13:39:36.616Z"
+type: "MARKDOWN_NOTE"
+folder: "b5a4c3735ff349c471f9"
+title: "View a file in a different Git branch without changing branches"
+tags: []
+content: '''
+  # View a file in a different Git branch without changing branches
+  ```
+  git show branch:file
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

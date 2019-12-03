@@ -1,0 +1,35 @@
+createdAt: "2019-11-26T13:47:24.940Z"
+updatedAt: "2019-11-26T13:51:05.745Z"
+type: "MARKDOWN_NOTE"
+folder: "261b9e914015640b9d51"
+title: "Pipenv"
+tags: []
+content: '''
+  # Pipenv
+  
+  ## Creation
+  `pipenv --python 3.6`
+  `pipenv install <package>`
+  
+  ## Shell
+  `pipenv shell`
+  
+  ## Installation of lib
+  `pipenv install "requests>=1.4"   # will install a version equal or larger than 1.4.0`
+  
+  ## Update
+  `pipenv update <pkg>`
+  `pipenv update --outdated`
+  
+  ## Uninstall
+  `pipenv uninstall`
+  
+  ## Lock
+  `pipenv lock`
+  
+  ## Remove
+  `pipenv --rm`
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

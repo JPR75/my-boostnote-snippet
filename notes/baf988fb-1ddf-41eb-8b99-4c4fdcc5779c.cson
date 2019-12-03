@@ -1,0 +1,18 @@
+createdAt: "2019-11-26T13:51:35.716Z"
+updatedAt: "2019-11-26T13:52:26.276Z"
+type: "MARKDOWN_NOTE"
+folder: "7dc77dacbe5f2300b07f"
+title: "Sheat Cheat"
+tags: []
+content: '''
+  # Sheat Cheat
+  
+  ## Align a block
+  `Visual select block, type =`
+  
+  ## Insensitive case search
+  `/\\c`
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,45 @@
+{
+  "folders": [
+    {
+      "key": "4b9e934f6a6ed9d826c0",
+      "color": "#1278BD",
+      "name": "Default"
+    },
+    {
+      "key": "e9a4271b78b0a96eb3ee",
+      "color": "#30D5C8",
+      "name": "Bash"
+    },
+    {
+      "key": "58a8c6d8349dfe984364",
+      "color": "#E10051",
+      "name": "BBB"
+    },
+    {
+      "key": "b5a4c3735ff349c471f9",
+      "color": "#2BA5F7",
+      "name": "Git"
+    },
+    {
+      "key": "9cc8068564a06e978051",
+      "color": "#B013A4",
+      "name": "JupylerLab"
+    },
+    {
+      "key": "261b9e914015640b9d51",
+      "color": "#FF8E00",
+      "name": "Python"
+    },
+    {
+      "key": "69af2bf0c7bc0f916ede",
+      "color": "#B013A4",
+      "name": "VHDL"
+    },
+    {
+      "key": "7dc77dacbe5f2300b07f",
+      "color": "#3FD941",
+      "name": "VIM"
+    }
+  ],
+  "version": "1.0"
+}

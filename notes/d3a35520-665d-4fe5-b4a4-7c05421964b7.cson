@@ -1,0 +1,131 @@
+createdAt: "2019-11-26T13:19:34.351Z"
+updatedAt: "2019-11-26T13:20:21.679Z"
+type: "SNIPPET_NOTE"
+folder: "58a8c6d8349dfe984364"
+title: "Read / Write GPIO"
+tags: []
+description: "Read / Write GPIO"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "GPIO.py"
+    mode: "Python"
+    content: '''
+      #! /usr/bin/env python
+      # -*- coding: utf-8 -*-
+      """
+        .. module:: command
+          :SYNOPSIS: 
+          :PLATFORM:
+      
+          ::
+      
+            SPF selecton test
+      
+            File     : cmd.py
+            Created  : September 25, 2019
+            Updated  : September 25, 2019
+      
+            Copyright (C) 2019 Jean-Paul Ricaud
+      
+            This program is free software: you can redistribute it and/or modify
+            it under the terms of the GNU Lesser General Public License as published by
+            the Free Software Foundation, either version 3 of the License, or
+            (at your option) any later version.
+      
+            This program is distributed in the hope that it will be useful,
+            but WITHOUT ANY WARRANTY; without even the implied warranty of
+            MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+            GNU Lesser General Public License for more details.
+      
+            You should have received a copy of the GNU Lesser General Public License
+            along with this program.  If not, see <http://www.gnu.org/licenses/>
+      
+            MODIFICATIONS :
+              --
+      
+        .. moduleauthor:: Jean-Paul Ricaud <>
+      """
+      
+      #------------------------------------------------------------------------------
+      # Set the command
+      #------------------------------------------------------------------------------
+      class Cmd () :
+        """
+          SPF selection test
+      
+          :param:
+          :type:
+          :returns:
+          :rtype:
+          :raise:
+        """
+        def configure_gpio (self) :
+      
+          """
+            Configure the GPIO0_15 for SPF ON
+      
+            :param:
+            :type:
+            :returns:
+            :rtype:
+            :raise: IO error
+          """
+          try :
+            # GPIO Numbering Scheme
+            # The gpio pins of the bbb are grouped into 3 groups of 32: GPIO0, GPIO1, and GPIO2.
+            # An individual pin can be refered to using the convention GPIOX_Y where X is its gpio register and Y is its number within that register.
+            # However, all references to a particular pin made in software instead uses its absolute pin number!
+            # A gpio’s absolute pin number is calculated in the following manner:
+            # Z = 32*X + Y where X is again the gpio register and Y is the position within that register.
+      
+            # i.e. GPIO2_24 is 32*2+24, making it GPIO_88. 
+            # If this pin were to be referenced anywhere in software, the user would use the number 88, not 24!
+      
+            pin_cfg = file("/sys/class/gpio/export","w")
+            pin_cfg.write("{:d}".format(15))
+            pin_cfg.close()
+            pin_cfg = file("/sys/class/gpio/gpio15/direction","w")
+            pin_cfg.write("out")
+            pin_cfg.close()
+          except :
+            raise IOError("GPIO configuration error")
+      
+        def SPF_set (self) :
+          """
+          Set GPIO0_15
+      
+          :param:
+          :type:
+          :returns:
+          :rtype:
+          :raise: IO error
+          """
+          try :
+            pin_set = file("/sys/class/gpio/gpio15/value","w")
+            pin_set.write("1")
+            pin_set.close()
+          except :
+            raise IOError("GPIO write error")
+      
+        def SPF_unset (self) :
+          """
+          Set GPIO0_15
+      
+          :param:
+          :type:
+          :returns:
+          :rtype:
+          :raise: IO error
+          """
+          try :
+            pin_set = file("/sys/class/gpio/gpio15/value","w")
+            pin_set.write("0")
+            pin_set.close()
+          except :
+            raise IOError("GPIO write error")
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

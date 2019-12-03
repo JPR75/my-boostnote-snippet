@@ -1,0 +1,15 @@
+createdAt: "2019-11-26T13:40:46.338Z"
+updatedAt: "2019-11-26T13:40:59.839Z"
+type: "MARKDOWN_NOTE"
+folder: "b5a4c3735ff349c471f9"
+title: "Compare files from two different branches"
+tags: []
+content: '''
+  # Compare files from two different branches
+  ```
+  git diff <branch 1> <branch 2> -- file
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

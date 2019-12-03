@@ -1,0 +1,129 @@
+createdAt: "2019-11-26T13:13:19.661Z"
+updatedAt: "2019-11-26T13:15:50.540Z"
+type: "SNIPPET_NOTE"
+folder: "69af2bf0c7bc0f916ede"
+title: "COP"
+tags: []
+description: "COP"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "cop_call.vhdl"
+    mode: "VHDL"
+    content: '''
+      -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      --- Calling COP
+      -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        -- Timout in seconds 1 to 1073741823 (= 33 years)
+        Watchdog : entity work.cop (rtl_cop)
+          generic map (
+            g_timeout => set_timeout(50) -- in seconds 1 to 1073741823 (= 33 years)
+          )
+          port map (
+            p_clkin => s_clk2Hz,
+            p_alive_pulse => s_input_pulse,
+            p_alive_level => s_input_level,
+            p_out => p_COP_reset
+          );
+    '''
+  }
+  {
+    name: "cop_pkg.vhdl"
+    mode: "VHDL"
+    content: '''
+      
+      -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      --- The COP pkg
+      -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      library ieee;
+      use ieee.std_logic_1164.all;
+      use ieee.numeric_std.all;
+      use ieee.math_real.all;
+      
+      package cop_pkg is
+        function set_timeout (
+          timeout : natural
+        )
+        return unsigned;
+      end cop_pkg;
+      
+      package body cop_pkg is
+      
+        -- Calculate the counter value for a timeout in seconds
+        -- The counter has a clk of 2Hz and a size of 31 bits (= natural)
+        -- Timout in seconds 1 to 1073741823 (= 33 years)
+        function set_timeout (timeout : natural) return unsigned is
+          variable v_timeout : natural;
+        begin
+          if (timeout < 2**30) then
+            v_timeout := timeout * 2 - 1;
+          else
+            v_timeout := 2**31 - 2;
+            report "COP timeout set to max 2**31 - 1" severity warning;
+          end if;
+          return to_unsigned (v_timeout, 32);
+        end function;
+      
+      end package body cop_pkg;
+      
+      -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      --- The COP code
+      -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      library ieee;
+      use ieee.std_logic_1164.all;
+      use ieee.numeric_std.all;
+      
+      entity cop is
+        generic (
+          g_timeout : unsigned
+        );
+        port (
+          p_clkin       : in  std_logic; -- input clock
+          p_alive_pulse : in  std_logic; -- a positive pulse to say I'm alive
+          p_alive_level : in  std_logic; -- a H level to say I'm alive
+          p_out         : out std_logic  -- 0 = timout not reached ; 1 = timeout reached
+        );
+      end entity cop;
+      
+      architecture rtl_cop of cop is
+       
+        signal s_cnt       : unsigned (31 downto 0) := (OTHERS => '0'); -- counter
+        signal s_buffer    : std_logic_vector (1 downto 0) := (others => '0');
+        signal s_reset_cop : std_logic := '0';
+      
+        begin
+      
+        -- Detect a rising edge on I'm alive signal
+        Alive : process (p_clkin)
+        begin
+          if (rising_edge(p_clkin)) then
+            s_buffer(0) <= p_alive_pulse;
+            s_buffer(1) <= s_buffer(0);
+            s_reset_cop <= s_buffer(0) and (not s_buffer(1));
+          end if;
+        end process;
+      
+        -- Send a timeout after g_timeout delay
+        COP_counter : process (p_clkin)
+        begin
+          if (rising_edge(p_clkin)) then
+            if ((s_reset_cop = '1') or (p_alive_level = '1')) then
+              s_cnt <= (OTHERS => '0');
+              p_out <= '0';
+            elsif (s_cnt = g_timeout) then
+              s_cnt <= (OTHERS => '0');
+              p_out <= '1';
+            else
+              s_cnt <= s_cnt + 1;
+              p_out <= '0';
+            end if;
+          end if;
+        end process;
+      
+      end architecture rtl_cop;
+    '''
+    linesHighlighted: []
+  }
+]
+isStarred: false
+isTrashed: false

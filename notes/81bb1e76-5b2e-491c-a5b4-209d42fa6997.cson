@@ -1,0 +1,59 @@
+createdAt: "2019-11-26T13:07:42.501Z"
+updatedAt: "2019-11-26T13:09:18.667Z"
+type: "SNIPPET_NOTE"
+folder: "69af2bf0c7bc0f916ede"
+title: "Asynchronous signal synchronization and edghe detector (xilinx)"
+tags: []
+description: "Asynchronous signal synchronization and edghe detector (xilinx)"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "synchronize.vhdl"
+    mode: "VHDL"
+    content: '''
+      entity synchronize is
+        generic (
+          g_size : integer := 2
+        );
+        port (
+          p_clkin            : in  std_logic;   -- clock
+          p_in                : in  std_logic;   -- input signal (asynchronou)
+          p_rising_edge  : out std_logic; -- output rising edge detector
+          p_falling_edge : out std_logic; -- output falling edge detector
+          p_out              : out std_logic  -- output resynchonized signal
+        );
+      end synchronize;
+      
+      architecture rtl_synchronize of synchronize is
+        signal s_buffer  : std_logic_vector (g_size downto 0) := (others => '0');
+        -- To avoid the FFs being replaced by SRL
+        attribute ASYNC_REG : string;
+        attribute ASYNC_REG of s_buffer : signal is "TRUE";
+      
+        signal s_rising  : std_logic := '0';
+        signal s_falling : std_logic := '0';
+      
+        begin
+      
+        process (p_clkin)
+        begin
+          if (rising_edge(p_clkin)) then
+            s_buffer(0) <= p_in;
+            for I in 1 to g_size loop
+              s_buffer(I) <= s_buffer(I - 1);
+            end loop;
+            s_rising  <= s_buffer(g_size - 1) and (not s_buffer(g_size));
+            s_falling <= s_buffer(g_size) and (not s_buffer(g_size - 1));
+          end if;
+        end process;
+      
+        p_rising_edge  <= s_rising;
+        p_falling_edge <= s_falling;
+        p_out              <= s_buffer(g_size);
+      
+      end rtl_synchronize;
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

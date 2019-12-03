@@ -1,0 +1,43 @@
+createdAt: "2019-11-26T13:42:27.830Z"
+updatedAt: "2019-11-26T13:45:45.927Z"
+type: "SNIPPET_NOTE"
+folder: "9cc8068564a06e978051"
+title: "Interact widget"
+tags: []
+description: "Interact widget"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "inetract.ipynb"
+    mode: null
+    content: '''
+      from ipywidgets import interact
+      import numpy as np
+      import ipywidgets as widgets
+      
+      from bokeh.io import push_notebook, show, output_notebook
+      from bokeh.plotting import figure
+      output_notebook()
+      
+      x = np.linspace(0, 2*np.pi, 2000)
+      y = np.sin(x)
+      
+      p = figure(title="simple line example", plot_height=300, plot_width=600, y_range=(-5,5),
+                 background_fill_color='#efefef')
+      r = p.line(x, y, color="#8888cc", line_width=1.5, alpha=0.8)
+      
+      def update2(f, w=1, A=1, phi=0):
+          if   f == "sin": func = np.sin
+          elif f == "cos": func = np.cos
+          r.data_source.data['y'] = A * func(w * x + phi)
+          push_notebook()
+          
+      @interact
+      def show_chart(f=["sin", "cos"], w=(0,100), A=(1,10), phi=(0, 20, 0.1)):
+          update2(f, w, A, phi)
+          show(p, notebook_handle=True)
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

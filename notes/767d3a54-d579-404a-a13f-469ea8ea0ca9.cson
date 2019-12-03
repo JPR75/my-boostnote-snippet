@@ -1,0 +1,17 @@
+createdAt: "2019-11-25T15:51:19.396Z"
+updatedAt: "2019-11-25T15:55:34.992Z"
+type: "SNIPPET_NOTE"
+folder: "69af2bf0c7bc0f916ede"
+title: "Padding"
+tags: []
+description: "Padding"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "Padding.vhdl"
+    mode: "VHDL"
+    content: "dout <= (m downto n => '0') & din(p downto q);"
+  }
+]
+isStarred: false
+isTrashed: false
