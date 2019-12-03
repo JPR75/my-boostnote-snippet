@@ -1,5 +1,5 @@
 createdAt: "2019-11-26T13:19:34.351Z"
-updatedAt: "2019-11-26T13:20:21.679Z"
+updatedAt: "2019-12-03T14:45:28.167Z"
 type: "SNIPPET_NOTE"
 folder: "58a8c6d8349dfe984364"
 title: "Read / Write GPIO"
@@ -44,7 +44,7 @@ snippets: [
             MODIFICATIONS :
               --
       
-        .. moduleauthor:: Jean-Paul Ricaud <>
+        .. moduleauthor:: JPR75 <>
       """
       
       #------------------------------------------------------------------------------
