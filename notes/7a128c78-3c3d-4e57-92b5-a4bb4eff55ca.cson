@@ -1,5 +1,5 @@
 createdAt: "2019-11-26T13:38:40.466Z"
-updatedAt: "2019-11-26T13:39:06.461Z"
+updatedAt: "2019-12-04T08:01:23.525Z"
 type: "MARKDOWN_NOTE"
 folder: "b5a4c3735ff349c471f9"
 title: "My config"
@@ -19,4 +19,4 @@ content: '''
 '''
 linesHighlighted: []
 isStarred: false
-isTrashed: false
+isTrashed: true

@@ -1,0 +1,21 @@
+createdAt: "2019-12-04T07:51:00.476Z"
+updatedAt: "2019-12-04T07:54:40.134Z"
+type: "SNIPPET_NOTE"
+folder: "ef96c15a38578079db09"
+title: "Launch gVim from Cygwin"
+tags: []
+description: "Launch gVim from Cygwin"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "lanchgvim"
+    mode: null
+    content: '''
+      #!/bin/sh
+      file=`cygpath -aw "$1"`
+      /cygdrive/c/Vim/vim81/gvim.exe --nofork $file
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

@@ -1,0 +1,45 @@
+createdAt: "2019-12-04T08:01:27.160Z"
+updatedAt: "2019-12-04T09:25:43.673Z"
+type: "SNIPPET_NOTE"
+folder: "b5a4c3735ff349c471f9"
+title: "My git config"
+tags: []
+description: "My git config"
+snippets: [
+  {
+    linesHighlighted: [
+      10
+    ]
+    name: "gitconfig"
+    mode: null
+    content: '''
+      [user]
+        name =
+        email =
+      [core]
+        editor = ~/lanchgvim
+        pager = less -FX
+      [color]
+        ui = true
+      [alias]
+      # Full log
+        gvf = log --graph --date-order -C -M --pretty=format:\\" %C(bold yellow)<%h>%Creset %C(cyan)%ad%Creset %C(bold green)%d%Creset %s\\" --all --date=short
+        # Collapse the linear parts of the history
+        gv = log --graph --date-order -C -M --pretty=format:\\" %C(bold yellow)<%h>%Creset %C(cyan)%ad%Creset %C(bold green)%d%Creset %s\\" --all --date=short --simplify-by-decoration
+        # Show author
+        gva = log --graph --date-order --color --pretty=format:\\" %C(bold yellow)<%h>%Creset %C(cyan)%ad%Creset %C(bold blue)%an%Creset %C(bold green)%d%Creset %s\\" --all --date=short
+        ls = ls-tree --name-only -r head
+      [merge]
+        tool = ~/extMerge
+      [mergetool "extMerge"]
+        cmd = ~/extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+        trustExitCode = false
+      [diff]
+        external = ~/extDiff
+      [http]
+      #  proxy = http://XXX.XXX.X.XX:8080/
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

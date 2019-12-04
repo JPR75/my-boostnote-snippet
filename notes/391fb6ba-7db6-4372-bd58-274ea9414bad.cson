@@ -1,0 +1,32 @@
+createdAt: "2019-12-04T07:54:44.092Z"
+updatedAt: "2019-12-04T07:59:04.532Z"
+type: "SNIPPET_NOTE"
+folder: "ef96c15a38578079db09"
+title: "Launch Diff / Merge soft from Cygwin"
+tags: []
+description: "Launch Diff / Merge soft from Cygwin"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "extMerge"
+    mode: null
+    content: '''
+      #!/bin/sh
+      
+      extMerge :
+      #/cygdrive/d/Program\\ Files\\ \\(x86\\)/KDiff3/kdiff3.exe $*
+      /cygdrive/c/Program\\ Files/KDiff3/kdiff3.exe $*
+    '''
+  }
+  {
+    name: "extDiff"
+    mode: null
+    content: '''
+      #!/bin/sh
+      [ $# -eq 7 ] && ~/extMerge `cygpath -aw "$2"` `cygpath -aw "$5"`
+    '''
+    linesHighlighted: []
+  }
+]
+isStarred: false
+isTrashed: false
