@@ -1,0 +1,35 @@
+createdAt: "2019-12-17T11:53:25.527Z"
+updatedAt: "2019-12-17T11:53:56.266Z"
+type: "SNIPPET_NOTE"
+folder: "14c851b04568c11278cd"
+title: "Key binding"
+tags: []
+description: "Key binding"
+snippets: [
+  {
+    linesHighlighted: []
+    name: ""
+    mode: null
+    content: '''
+      NumpadDot::.
+      <^>!a::send {U+00E0} ; a acc
+      <^>!+a::send {U+00C0} ; A acc
+      <^>!r::send {U+00E9} ; e acc aigue
+      <^>!+r::send {U+00C9} ; E acc aigue
+      <^>!t::send {U+00E8} ; e acc grave
+      <^>!+t::send {U+00C8} ; E acc grave
+      <^>!y::send {U+00EA} ; e acc cir
+      <^>!+y::send {U+00CA} ; E acc cir
+      <^>!c::send {U+00E7} ; c cedi
+      <^>!+c::send {U+00C7} ; C cedi
+      <^>!u::send {U+00F9} ; u acc
+      <^>!+u::send {U+00D9} ; U acc
+      <^>!o::send {U+00F4} ; o acc
+      <^>!+o::send {U+00D4} ; O acc
+      <^>!p::send {U+0153} ; oe
+      <^>!+p::send {U+0152} ; OE
+    '''
+  }
+]
+isStarred: false
+isTrashed: false
