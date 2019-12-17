@@ -1,0 +1,21 @@
+createdAt: "2019-12-17T07:28:38.753Z"
+updatedAt: "2019-12-17T07:34:53.763Z"
+type: "MARKDOWN_NOTE"
+folder: "ef96c15a38578079db09"
+title: "Configuration"
+tags: []
+content: '''
+  # Configuration
+  
+  ## ZSH shell auto launch
+  `C:\\cygwin64\\bin\\mintty.exe -i /Cygwin-Terminal.ico /bin/zsh --login`
+  
+  ## Mintty config
+  * Font: DejaVuSansMono
+  * Local: C
+  * Char set: UTF-8
+  * Theme: flat-ui
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
